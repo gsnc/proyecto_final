@@ -3,15 +3,10 @@ import cartCtrl from "../controllers/cartController.js";
 
 const router = express.Router();
 
-router.use((req, res, next) => {
-    console.log('Time: ', Date.now());
-    next();
-});
-
-router.get('/', () => { console.log("CART GET ALL") });
-router.get('/:pid', () => { console.log("CART GET ONE") });
-router.post('/', () => { console.log("CART ADD NEW") });
-router.put('/:pid', () => { console.log("CART CHANGE ONE") });
-router.delete('/:pid', () => { console.log("CART DELETE ONE") });
+router.post('/', cartCtrl.createCart);
+router.delete('/:cid', cartCtrl.deleteCart);
+router.get('/:cid/products', cartCtrl.getProducts);
+router.post('/:cid/products', cartCtrl.addProducts);
+router.delete('/:cid/products/:pid', cartCtrl.deleteProduct);
 
 export default router;

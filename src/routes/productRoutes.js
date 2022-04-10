@@ -2,7 +2,7 @@ import express from "express";
 import prodCtrl from "../controllers/productController.js";
 
 const router = express.Router();
-const admin = false;
+const admin = true;
 
 router.get('/', prodCtrl.getAllProducts);
 router.get('/:pid', prodCtrl.getProduct);

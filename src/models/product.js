@@ -2,15 +2,15 @@ import {v4 as uuidv4} from 'uuid';
 
 export default class Product {
 
-    constructor(title, description, code, thumbnail, price, stock) {
+    constructor(title, description, code, thumbnail, price, stock,id,timestamp) {
         this.title = title;
         this.description = description;
         this.code = code;
         this.thumbnail = thumbnail;
         this.price = price;
         this.stock = stock;
-        this.id = uuidv4();
-        this.timestamp = Date.now();
+        this.id = id || uuidv4();
+        this.timestamp = timestamp || Date.now();
     }
 
     get = () => {
